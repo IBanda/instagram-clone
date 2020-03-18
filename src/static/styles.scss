@@ -1,0 +1,386 @@
+          @import 'mixin';
+          @import 'variables';
+          * {
+              box-sizing: border-box;
+          }
+          
+          html,
+          body {
+              height: 100%;
+              width: 100%;
+              overflow-y: hidden auto;
+              background-color: $firstShed;
+              font-size: 13px;
+          }
+          
+          .container {
+              padding: 0 6%;
+          }
+          
+          .imageWrapper {
+              position: relative;
+              img:first-child {
+                  width: 100%;
+                  width: 32px;
+                  height: 32px;
+                  border-radius: 50%;
+              }
+              img:last-child {
+                  position: absolute;
+                  top: -5px;
+                  left: -5px;
+                  width: 42px;
+                  height: 42px;
+              }
+          }
+          /*
+* HEADER
+*/
+          
+          .headerWrapper {
+              border-bottom: 1px solid lightgray;
+              background-color: #fff;
+              position: fixed;
+              width: 100%;
+              top: 0;
+              z-index: 20;
+              .header {
+                  height: 53px;
+                  .menuWrapper,
+                  .logoWrapper,
+                  .searchWrapper {
+                      @include alignCenter;
+                      height: 53px;
+                  }
+                  .menuWrapper {
+                      display: flex;
+                      justify-content: flex-end;
+                      ul {
+                          @include styledList;
+                          li {
+                              display: inline-block;
+                              margin-right: 20px;
+                          }
+                      }
+                      .profilePic {
+                          width: 25px;
+                          height: 25px;
+                          @include greyBorder;
+                          border-radius: 50%;
+                      }
+                  }
+                  .searchWrapper {
+                      display: flex;
+                      justify-content: center;
+                      .inputWrapper {
+                          height: 28px;
+                          background-color: $firstShed;
+                          @include greyBorder;
+                          position: relative;
+                          border-radius: 2px;
+                          width: 215px;
+                          text-align: center;
+                          outline: none;
+                          .searchIcon {
+                              width: 10px;
+                              display: inline-block;
+                              margin-right: 5px;
+                          }
+                          input {
+                              @include buttonFormat;
+                              text-transform: capitalize;
+                              width: 50px;
+                              &::placeholder {
+                                  color: #bbbbbb;
+                                  font-weight: 100;
+                              }
+                          }
+                          button {
+                              @include buttonFormat;
+                              .closeIcon {
+                                  width: 13px;
+                                  border-radius: 50%;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+          /*
+* FEED 
+*/
+          
+          .feedWrapper {
+              margin-top: 85px;
+              .feedCard {
+                  @include greyBorder;
+                  border-radius: 2px;
+                  margin-bottom: 30px;
+                  .feedHeader {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      height: 60px;
+                      padding: 10px;
+                      .leftContainer {
+                          @include alignCenter;
+                          justify-content: center;
+                          line-height: 1.5;
+                          p {
+                              margin: 0;
+                          }
+                          .username {
+                              font-weight: 600;
+                          }
+                          .location {
+                              text-transform: capitalize;
+                              font-size: 12px;
+                          }
+                      }
+                      .rightContainer {
+                          display: inline-block;
+                          button {
+                              @include buttonFormat;
+                          }
+                          img {
+                              width: 15px;
+                          }
+                      }
+                  }
+                  .feedBody {
+                      img {
+                          width: 100%;
+                      }
+                  }
+                  .feedFooter {
+                      padding: 10px 20px;
+                      .actions {
+                          display: flex;
+                          button {
+                              @include buttonFormat;
+                              padding: 0;
+                              margin-right: 15px;
+                          }
+                      }
+                      .likes {
+                          margin-top: 10px;
+                          margin-bottom: 0px;
+                          font-weight: 600;
+                      }
+                      .username {
+                          font-weight: 600;
+                          font-size: 14px;
+                          margin-right: 5px;
+                          display: inline-block;
+                          margin-bottom: 0;
+                      }
+                      .caption {
+                          font-size: 14px;
+                          display: inline-block;
+                          margin: 0;
+                      }
+                      .readMore {
+                          @include buttonFormat;
+                          color: $thirdShed;
+                          padding: 0;
+                      }
+                      a {
+                          color: $thirdShed;
+                          text-transform: capitalize;
+                          p {
+                              margin: 0;
+                          }
+                      }
+                      .commentList {
+                          @include styledList;
+                          li {
+                              position: relative;
+                              p {
+                                  margin: 0;
+                              }
+                              svg {
+                                  position: absolute;
+                                  right: 0;
+                                  top: 25%;
+                              }
+                          }
+                      }
+                      .postTime {
+                          font-size: 10px;
+                          text-transform: uppercase;
+                          color: $thirdShed;
+                      }
+                  }
+                  form {
+                      width: 100%;
+                      border-top: 1px solid lightgray;
+                      padding: 15px 0 15px 20px;
+                      input[type="text"] {
+                          width: 92%;
+                          @include buttonFormat;
+                          &::placeholder {
+                              font-size: 14px;
+                          }
+                      }
+                      input[type="submit"] {
+                          @include buttonFormat;
+                          font-size: 14px;
+                          text-transform: capitalize;
+                          color: rgba($color: #46b3e6, $alpha: .5);
+                          font-weight: 600;
+                      }
+                  }
+              }
+              /*
+* FEED SIDEBAR
+*/
+              .feedSideBarWrapper {
+                  padding-right: 30px;
+                  position: relative;
+                  .feedSideBar {
+                      position: fixed;
+                      .profile {
+                          @include alignCenter;
+                          margin-bottom: 20px;
+                          img {
+                              width: 50px;
+                              height: 50px;
+                              border-radius: 50%;
+                              @include greyBorder;
+                              margin-right: 15px;
+                          }
+                          .myInfo {
+                              p {
+                                  margin: 0;
+                                  &:first-child {
+                                      font-weight: 600;
+                                  }
+                                  &:last-child {
+                                      font-size: 12px;
+                                      text-transform: capitalize;
+                                      color: $thirdShed;
+                                  }
+                              }
+                          }
+                      }
+                      .stories {
+                          @include greyBorder;
+                          background-color: #fff;
+                          height: 223px;
+                          overflow: hidden;
+                          margin-bottom: 12px;
+                          .storiesHeader {
+                              padding: 10px 20px 20px;
+                              margin-bottom: 10px;
+                              p {
+                                  text-transform: capitalize;
+                                  font-weight: 600;
+                                  &:first-child {
+                                      color: $thirdShed;
+                                  }
+                              }
+                          }
+                          .storyList {
+                              @include styledList;
+                              height: 218px;
+                              overflow-y: auto;
+                              padding: 5px 0 0 20px;
+                              li {
+                                  @include alignCenter;
+                                  margin-bottom: 15px;
+                                  p {
+                                      margin: 0;
+                                      font-weight: 600;
+                                      &:last-child {
+                                          text-transform: uppercase;
+                                          font-weight: 100;
+                                          font-size: 10px;
+                                          color: $thirdShed;
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                      .suggestions {
+                          @include greyBorder;
+                          background-color: #fff;
+                          height: 197px;
+                          margin-bottom: 13px;
+                          .suggestionsHeader {
+                              padding: 10px 20px 20px;
+                              p {
+                                  text-transform: capitalize;
+                                  font-weight: 600;
+                                  &:first-child {
+                                      color: $thirdShed;
+                                  }
+                              }
+                          }
+                          ul {
+                              @include styledList;
+                              padding: 15px 20px 20px;
+                              li {
+                                  @include alignCenter;
+                                  margin-bottom: 15px;
+                                  p {
+                                      margin: 0;
+                                      font-weight: 600;
+                                      &:last-child {
+                                          font-weight: 100;
+                                          font-size: 12px;
+                                          font-weight: 400;
+                                          color: $thirdShed;
+                                      }
+                                  }
+                                  a {
+                                      font-size: 12px;
+                                      margin-left: auto;
+                                      font-weight: 600;
+                                  }
+                              }
+                          }
+                      }
+                      .suggestionsHeader,
+                      .storiesHeader {
+                          display: flex;
+                          justify-content: space-between;
+                          height: 19px;
+                      }
+                      .resources {
+                          @include styledList;
+                          overflow: hidden;
+                          li {
+                              position: relative;
+                              display: inline-block;
+                              margin: 0 3px;
+                              a {
+                                  color: $secondShed;
+                                  text-transform: capitalize;
+                                  font-size: 11px;
+                                  font-weight: 600;
+                              }
+                              &::after {
+                                  content: '';
+                                  position: absolute;
+                                  background-color: $secondShed;
+                                  width: 2px;
+                                  height: 2px;
+                                  left: -4px;
+                                  top: 50%;
+                                  border-radius: 50%;
+                              }
+                              &:first-child {
+                                  margin-left: 0;
+                              }
+                          }
+                      }
+                      .copyRight {
+                          color: $secondShed;
+                          text-transform: uppercase;
+                          font-weight: 600;
+                          font-size: 11px;
+                          margin-top: 20px;
+                      }
+                  }
+              }
+          }
